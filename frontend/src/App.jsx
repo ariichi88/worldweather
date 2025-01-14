@@ -13,7 +13,7 @@ function App() {
 	    temperature: "",
 	    conditionText: "",
 	    icon: ""
-	    })
+	    });
 
 	const getWeather = e => {
 		e.preventDefault();
@@ -26,7 +26,7 @@ function App() {
 				conditionText: data.current.condition.text,
 				icon: data.current.condition.icon
 			})
-		)
+		);
 	}
 
     return (
