@@ -1,24 +1,26 @@
 import {useState} from 'react';
+import logo from './assets/images/logo-universal.png';
 import './App.css';
-import Title from "./components/Title";
-import Form from "./components/Form";
-import Results from "./components/Results";
-import {GetWeather} from "../wailsjs/go/main/App";
+import {Greet} from "../wailsjs/go/main/App";
 
 function App() {
-	const [city, setCity] = useState("");
-	const [results, setResults] = useState("")
+    const [resultText, setResultText] = useState("Please enter your name below 👇");
+    const [name, setName] = useState('');
+    const updateName = (e) => setName(e.target.value);
+    const updateResultText = (result) => setResultText(result);
 
-	const getWeather = e => {
-		e.preventDefault();
-		GetWeather(city).then(setResults)
-	}
+    function greet() {
+        Greet(name).then(updateResultText);
+    }
 
     return (
         <div id="App">
-			<Title/>
-		    <Form setCity={setCity} getWeather={getWeather}/>
-		    <Results results={results}/>
+            <img src={logo} id="logo" alt="logo"/>
+            <div id="result" className="result">{resultText}</div>
+            <div id="input" className="input-box">
+                <input id="name" className="input" onChange={updateName} autoComplete="off" name="input" type="text"/>
+                <button className="btn" onClick={greet}>Greet</button>
+            </div>
         </div>
     )
 }
