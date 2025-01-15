@@ -2,9 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
-	"log"
-	"net/http"
 )
 
 // App struct
@@ -23,14 +20,6 @@ func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
-func (a *App) GetWeather(city string) *http.Response {
-
-	loc := fmt.Sprintf("https://api.weatherapi.com/v1/current.json?key=4cd22e3f7c4343b69de84008241512&q=%s&aqi=no", city)
-
-	res, err := http.Get(loc)
-	if err != nil {
-		log.Fatal(err)
-	}
-	
-    return res
+func (a *App) GetWeather(city string) string {
+    return city 
 }

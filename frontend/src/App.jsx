@@ -6,27 +6,12 @@ import Results from "./components/Results";
 import {GetWeather} from "../wailsjs/go/main/App";
 
 function App() {
-	const [city, setCity] = useState("Tokyo");
-	const [results, setResults] = useState({
-	    country: "",
-	    cityName: "",
-	    temperature: "",
-	    conditionText: "",
-	    icon: ""
-	    });
+	const [city, setCity] = useState("");
+	const [results, setResults] = useState("")
 
 	const getWeather = e => {
 		e.preventDefault();
-		GetWeather(city)
-			.then(res => res.json())
-		    .then(data => setResults({
-				country: data.location.country,
-				cityName: data.location.name,
-				temperature: data.current.temp_c,
-				conditionText: data.current.condition.text,
-				icon: data.current.condition.icon
-			})
-		);
+		GetWeather(city).then(setResults)
 	}
 
     return (
