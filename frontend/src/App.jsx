@@ -6,6 +6,9 @@ import Result from './components/Result'
 import {Getweather} from "../wailsjs/go/main/App";
 
 App = () => {
+	const getWeather = (e) => {
+		e.prevenDefault()
+	}
 
     return (
         <div id="App">
