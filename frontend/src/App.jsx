@@ -1,14 +1,9 @@
-import {useState} from 'react';
 import './App.css';
-import Title from './components/Title';
-import Form from './components/Form';
-import Result from './components/Result'
-import {Getweather} from "../wailsjs/go/main/App";
+import Title from "./components/Title"
+import Form from "./components/Form"
+import Result from "./components/Result"
 
-App = () => {
-	const getWeather = (e) => {
-		e.prevenDefault()
-	}
+const  App = () => {
 
     return (
         <div id="App">
