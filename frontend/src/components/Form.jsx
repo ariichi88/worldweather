@@ -1,10 +1,10 @@
 // Form.jsx
 
-const Form = () => {
+const Form = props => {
 	return (
 		<form>
-		    <input type="tetx" name="city" placeholder="都市名"/>
-		    <button type="submit">都市名</button>
+		    <input type="tetx" name="city" placeholder="都市名" onChange={e => props.setCity(e.target.value)}/>
+		    <button type="submit" onClick={props.getWeather}>都市名</button>
 		</form>
 	)
 }

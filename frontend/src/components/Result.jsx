@@ -1,9 +1,9 @@
 // Result.jsx
 
-const Result = () => {
+const Result = props => {
 	return (
 		<div>
-		    <h4>Wails World Weather</h4>
+		    <h2>{props.result}</h2>
 		</div>
 	)
 }

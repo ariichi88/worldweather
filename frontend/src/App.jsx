@@ -1,15 +1,25 @@
+import {useState} from "react"
 import './App.css';
 import Title from "./components/Title"
 import Form from "./components/Form"
 import Result from "./components/Result"
+import {GetWeather} from "../wailsjs/go/main/App"
 
-const  App = () => {
+const App = () => {
+
+    const [city, setCity] = useState("")
+	const [result, setResult] = useState("Tokyo")
+
+    const getWeather = e => {
+		e.prevenDefault()
+		GetWeather(city).then(setResult)
+	}
 
     return (
         <div id="App">
-		    <Title/>
-		    <Form/>
-		    <Result/>
+		    <Title />
+		    <Form setCity={setCity} getWeather={getWeather}/>
+		    <Result result={result}/>
         </div>
     )
 }
