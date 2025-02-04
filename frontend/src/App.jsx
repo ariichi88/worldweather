@@ -1,5 +1,5 @@
 import {useState} from "react"
-import './App.css';
+import './App.css'
 import Title from "./components/Title"
 import Form from "./components/Form"
 import Result from "./components/Result"
@@ -11,8 +11,8 @@ const App = () => {
 	const [result, setResult] = useState("Tokyo")
 
     const getWeather = e => {
-		e.prevenDefault()
-		GetWeather(city).then(setResult)
+		e.preventDefault()
+		GetWeather(city).then(result => setResult(result))
 	}
 
     return (
