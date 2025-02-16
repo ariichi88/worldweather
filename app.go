@@ -25,10 +25,17 @@ func (a *App) startup(ctx context.Context) {
 
 // my function
 func (a *App) GetWeather(city string) *http.Response  {
+
 	api := fmt.Sprintf("https://api.weatherapi.com/v1/current.json?key=4cd22e3f7c4343b69de84008241512&q=%s&aqi=no", city)
-	res, err := http.Get(api)
-	if err != nil {
-		log.Fatal(err)
+    req, err := http.NewRequest("GET", api, nil)
+    if err != nil {
+        log.Fatal(err)
 	}
-	return res
+    
+    client := &http.Client{}
+    res, err := client.Do(req)
+    if err != nil {
+	    log.Fatal(err)
+    }
+    return res
 }
