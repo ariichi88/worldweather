@@ -12,7 +12,7 @@ const App = () => {
 
     const getWeather = e => {
 		e.preventDefault()
-		GetWeather(city).then(res => res.json()).then(data => setResult(data))
+		GetWeather(city).then(setResult)
 	}
 
     return (

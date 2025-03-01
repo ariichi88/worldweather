@@ -3,13 +3,21 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
-	"net/http"
+	// "fmt"
+	// "log"
+	// "net/http"
 )
 
 // App struct
 type App struct {
 	ctx context.Context
+}
+
+// My struct
+type Mine struct {
+	name string
+	city string
+	num  int
 }
 
 // NewApp creates a new App application struct
@@ -24,18 +32,25 @@ func (a *App) startup(ctx context.Context) {
 }
 
 // my function
-func (a *App) GetWeather(city string) *http.Response  {
+func (a *App) GetWeather(city string) Mine {
 
-	api := fmt.Sprintf("https://api.weatherapi.com/v1/current.json?key=4cd22e3f7c4343b69de84008241512&q=%s&aqi=no", city)
-    req, err := http.NewRequest("GET", api, nil)
-    if err != nil {
-        log.Fatal(err)
-	}
+//	api := fmt.Sprintf("https://api.weatherapi.com/v1/current.json?key=4cd22e3f7c4343b69de84008241512&q=%s&aqi=no", city)
+//    req, err := http.NewRequest("GET", api, nil)
+//    if err != nil {
+//        log.Fatal(err)
+//	}
     
-    client := &http.Client{}
-    res, err := client.Do(req)
-    if err != nil {
-	    log.Fatal(err)
-    }
-    return res
+//    client := &http.Client{}
+//    res, err := client.Do(req)
+//    if err != nil {
+//	    log.Fatal(err)
+//    }
+
+    var mine Mine
+
+	mine.name = "my app"
+	mine.city = fmt.Sprintf("you select %s", city)
+	mine.num = 42
+
+    return mine 
 }

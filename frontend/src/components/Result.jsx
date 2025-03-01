@@ -3,7 +3,7 @@
 const Result = props => {
 	return (
 		<div>
-		    <h2>{props.result}</h2>
+		    <h2>データ{props.city}</h2>
 		</div>
 	)
 }
