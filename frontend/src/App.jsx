@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState} from "react" 
 import './App.css'
 import Title from "./components/Title"
 import Form from "./components/Form"
@@ -7,13 +7,13 @@ import {GetWeather} from "../wailsjs/go/main/App"
 
 const App = () => {
 
-    const [city, setCity] = useState("")
-	const [result, setResult] = useState("Tokyo")
-
-    const getWeather = e => {
+    const [city, setCity] = useState()
+    const [result, setResult] = useState()
+	
+    const getWeather = async e => {
 		e.preventDefault()
-		GetWeather(city).then(setResult)
-	}
+		GetWeather(city).then(data => setResult(data))
+}
 
     return (
         <div id="App">

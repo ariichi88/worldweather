@@ -3,7 +3,7 @@
 const Result = props => {
 	return (
 		<div>
-		    <h2>データ{props.city}</h2>
+		    <pre>{JSON.stringify(props, null, 2)}</pre>
 		</div>
 	)
 }

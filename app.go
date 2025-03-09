@@ -3,21 +3,15 @@ package main
 import (
 	"context"
 	"fmt"
-	// "fmt"
-	// "log"
-	// "net/http"
+    "io"
+	"log"
+	"net/http"
+	"encoding/json"
 )
 
 // App struct
 type App struct {
 	ctx context.Context
-}
-
-// My struct
-type Mine struct {
-	name string
-	city string
-	num  int
 }
 
 // NewApp creates a new App application struct
@@ -32,25 +26,25 @@ func (a *App) startup(ctx context.Context) {
 }
 
 // my function
-func (a *App) GetWeather(city string) Mine {
+func (a *App) GetWeather(city string) map[string]interface{} {
+	
+     api := fmt.Sprintf("https://api.weatherapi.com/v1/current.json?key=4cd22e3f7c4343b69de84008241512&q=%s&aqi=no", city)
+     resp, err := http.Get(api)
+     if err != nil {
+		 log.Fatal(err)
+	 }
+	 defer resp.Body.Close()
 
-//	api := fmt.Sprintf("https://api.weatherapi.com/v1/current.json?key=4cd22e3f7c4343b69de84008241512&q=%s&aqi=no", city)
-//    req, err := http.NewRequest("GET", api, nil)
-//    if err != nil {
-//        log.Fatal(err)
-//	}
-    
-//    client := &http.Client{}
-//    res, err := client.Do(req)
-//    if err != nil {
-//	    log.Fatal(err)
-//    }
+	 body, err := io.ReadAll(resp.Body)
+	 if err != nil {
+		 log.Fatal(err)
+     }
 
-    var mine Mine
+     var data map[string]interface{}
+	 err = json.Unmarshal(body, &data)
+	 if err != nil {
+		 log.Fatal(err)
+     }
 
-	mine.name = "my app"
-	mine.city = fmt.Sprintf("you select %s", city)
-	mine.num = 42
-
-    return mine 
+     return data
 }
