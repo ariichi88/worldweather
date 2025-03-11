@@ -13,7 +13,7 @@ const App = () => {
     const getWeather = async e => {
 		e.preventDefault()
 		GetWeather(city).then(data => setResult(data))
-}
+    }
 
     return (
         <div id="App">

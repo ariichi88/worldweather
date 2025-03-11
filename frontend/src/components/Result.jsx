@@ -1,9 +1,12 @@
 // Result.jsx
 
 const Result = props => {
+
+	const jsonString = JSON.stringify(props, null, 2)
+
 	return (
 		<div>
-		    <pre>{JSON.stringify(props, null, 2)}</pre>
+		   <pre>{jsonString}</pre>
 		</div>
 	)
 }
