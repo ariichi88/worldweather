@@ -2,12 +2,12 @@
 
 const Result = props => {
 
-	const jsonString = JSON.stringify(props, null, 2)
-	const jsonObject = JSON.parse(jsonString)
+	const str = JSON.stringify(props, null, 2)
+	const obj = JSON.parse(str)
 
 	return (
 		<div>
-		    <div>{Object.keys(jsonObject) != 0 && jsonObject.result.current.condition.cloud}</div>
+		    <div>{obj.result && obj.result.current.condition.cloud}</div>
 		</div>
 	)
 }
