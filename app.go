@@ -46,5 +46,13 @@ func (a *App) GetWeather(city string) map[string]interface{} {
 		 log.Fatal(err)
      }
 
-     return data
+	 // マップの中にerrorキーがあるか検索
+	 var key = "error"
+     _, ok := data[key]
+	 if ok {
+		 data = nil
+		 return data
+	 } else {
+         return data
+	 }
 }

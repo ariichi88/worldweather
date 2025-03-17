@@ -7,7 +7,7 @@ const Result = props => {
 
 	return (
 		<div>
-		    <div>{obj.result && obj.result.current.condition.cloud}</div>
+		    <div>{obj.result && obj.result.current.cloud}</div>
 		</div>
 	)
 }
