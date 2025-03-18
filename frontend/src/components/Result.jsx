@@ -9,7 +9,7 @@ const Result = props => {
 		<div>
 		    <div>{obj.result && obj.result.location.country}</div>
 		    <div>{obj.result && obj.result.location.name}</div>
-		    <div>{obj.result && obj.result.current.temp_c}</div>
+		    <div>{obj.result && obj.result.current.temp_c}<span>℃</span></div>
 		    <img src={obj.result && obj.result.current.condition.icon}/>
 		    <div>{obj.result && obj.result.current.condition.text}</div>
 		</div>
