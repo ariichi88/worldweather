@@ -9,10 +9,7 @@ const Result = props => {
 		<div>
 		    <div>{obj.result && obj.result.location.country}</div>
 		    <div>{obj.result && obj.result.location.name}</div>
-		    <div>
-		        {obj.result && obj.result.current.temp_c}
-		        {obj.result && "℃"}
-		    </div>
+		    <div>{obj.result && obj.result.current.temp_c}{obj.result && "℃"}</div>
 		    <img src={obj.result && "https:".concat(obj.result.current.condition.icon)}/>
 		    <div>{obj.result && obj.result.current.condition.text}</div>
 		</div>
