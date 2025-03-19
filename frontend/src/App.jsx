@@ -13,12 +13,13 @@ const App = () => {
     const getWeather = async e => {
 		e.preventDefault()
 		GetWeather(city).then(data => setResult(data))
+		setCity("")
     }
 
     return (
         <div id="App">
 		    <Title />
-		    <Form setCity={setCity} getWeather={getWeather}/>
+		    <Form setCity={setCity} getWeather={getWeather} city={city}/>
 		    <Result result={result}/>
         </div>
     )
