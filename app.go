@@ -50,8 +50,7 @@ func (a *App) GetWeather(city string) map[string]interface{} {
 	 var key = "error"
      _, ok := data[key]
 	 if ok {
-		 data = nil
-		 return data
+		 return nil
 	 } else {
          return data
 	 }
