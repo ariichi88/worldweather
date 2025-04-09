@@ -41,6 +41,7 @@ func (a *App) GetWeather(city string) map[string]interface{} {
      }
 
      var data map[string]interface{}
+
 	 err = json.Unmarshal(body, &data)
 	 if err != nil {
 		 log.Fatal(err)
