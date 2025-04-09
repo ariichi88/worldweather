@@ -28,7 +28,7 @@ func (a *App) startup(ctx context.Context) {
 // my function
 func (a *App) GetWeather(city string) map[string]interface{} {
 	
-     api := fmt.Sprintf("https://api.weatherapi.com/v1/current.json?key=4cd22e3f7c4343b69de84008241512&q=%s&aqi=no", city)
+     api := fmt.Sprintf("https://api.weatherapi.com/v1/current.json?key=xxxxxxxxxx&q=%s&aqi=no", city)
      resp, err := http.Get(api)
      if err != nil {
 		 log.Fatal(err)
