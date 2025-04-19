@@ -6,5 +6,6 @@
 ## 背景について
 背景の画像はgoogle geminiで作成しました
 
-
+## APIのキーについて
+APIを叩くキーなどは[weaterapi](https://www.weatherapi.com)でアカウントを作成し入手してください  
 
