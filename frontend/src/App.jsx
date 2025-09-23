@@ -7,7 +7,7 @@ import {GetWeather} from "../wailsjs/go/main/App"
 
 const App = () => {
 
-    const [city, setCity] = useState()
+  const [city, setCity] = useState()
     const [result, setResult] = useState()
 	
     const getWeather = async e => {
