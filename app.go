@@ -26,7 +26,7 @@ func (a *App) startup(ctx context.Context) {
 }
 
 // my function
-func (a *App) GetWeather(city string) map[string]interface{} {
+func (a *App) GetWeather(city string) map[string]any {
 	
      api := fmt.Sprintf("https://api.weatherapi.com/v1/current.json?key=xxxxxxxxxxxxxxxxx&q=%s&aqi=no", city)
      resp, err := http.Get(api)
@@ -40,7 +40,7 @@ func (a *App) GetWeather(city string) map[string]interface{} {
 		 log.Fatal(err)
      }
 
-     var data map[string]interface{}
+     var data map[string]any
 
 	 err = json.Unmarshal(body, &data)
 	 if err != nil {
